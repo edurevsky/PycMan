@@ -1,1 +1,1 @@
-# Para iniciar o jogo, abra o arquivo "App.py"
+# Para iniciar o jogo, execute o arquivo "App.py"
