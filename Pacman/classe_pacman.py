@@ -58,23 +58,23 @@ class Pacman(ElementoJogo, Movivel):
     def processarEventos(self, eventos):
         for e in eventos:
             if e.type == pygame.KEYDOWN:
-                if e.key == pygame.K_RIGHT:
+                if e.key == pygame.K_RIGHT or e.key == pygame.K_d:
                     self.vel_x = VELOCIDADE
-                elif e.key == pygame.K_LEFT:
+                elif e.key == pygame.K_LEFT or e.key == pygame.K_a:
                     self.vel_x = -VELOCIDADE
-                elif e.key == pygame.K_DOWN:
+                elif e.key == pygame.K_DOWN or e.key == pygame.K_s:
                     self.vel_y = VELOCIDADE
-                elif e.key == pygame.K_UP:
+                elif e.key == pygame.K_UP or e.key == pygame.K_w:
                     self.vel_y = -VELOCIDADE
 
             if e.type == pygame.KEYUP:
-                if e.key == pygame.K_RIGHT:
+                if e.key == pygame.K_RIGHT or e.key == pygame.K_d:
                     self.vel_x = 0
-                elif e.key == pygame.K_LEFT:
+                elif e.key == pygame.K_LEFT or e.key == pygame.K_a:
                     self.vel_x = 0
-                elif e.key == pygame.K_DOWN:
+                elif e.key == pygame.K_DOWN or e.key == pygame.K_s:
                     self.vel_y = 0
-                elif e.key == pygame.K_UP:
+                elif e.key == pygame.K_UP or e.key == pygame.K_w:
                     self.vel_y = 0
 
 

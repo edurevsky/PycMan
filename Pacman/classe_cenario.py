@@ -16,7 +16,7 @@ class Cenario(ElementoJogo):
         # Estados: 0 = Jogando, 1 = Pausado, 2 = GameOver, 3 = Vitória
         self.estado = 0
         self.vidas = 3
-        self.matriz = MATRIZ
+        self.matriz = MATRIZ1
 
 
     def adicionarMovivel(self, obj):
@@ -57,7 +57,7 @@ class Cenario(ElementoJogo):
             if coluna == 1:
                 pygame.draw.circle(tela, yellow, (x + half, y + half), self.tamanho // 10, 0)
             if coluna == 3:
-                pygame.draw.circle(tela, red, (x + half, y + half), self.tamanho // 5, 0)
+                pygame.draw.circle(tela, red, (x + half, y + half), self.tamanho // 4, 0)
             if coluna == 4:
                 pygame.draw.circle(tela, green, (x + half, y + half), self.tamanho // 5, 0)
 
