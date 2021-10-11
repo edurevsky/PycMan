@@ -9,6 +9,7 @@ class App:
     def run():
         pygame.init()
 
+        pygame.display.set_caption("PycMan")
         window = pygame.display.set_mode((800, 600), 0)
 
         if __name__ == "__main__":
