@@ -1,10 +1,10 @@
 import pygame
-from pygame.time import Clock
 from cores import *
-from fisica import *
-from classe_cenario import Cenario
+from elementos import *
+from classe_elemento_jogo import ElementoJogo
+from classe_movivel import Movivel
 
-class Pacman:
+class Pacman(ElementoJogo, Movivel):
     def __init__(self, tamanho) -> None:
         self.coluna = 1
         self.linha = 1
@@ -16,6 +16,8 @@ class Pacman:
         self.vel_y = 0
         self.coluna_intencao = self.coluna
         self.linha_intencao = self.linha
+        self.abertura = 0
+        self.vel_abertura = 5
 
 
     def calcularRegras(self):
@@ -29,10 +31,17 @@ class Pacman:
         # Desenha o Pacman
         pygame.draw.circle(tela, yellow, (self.centro_x, self.centro_y), self.raio, 0)
 
+        # Animação da boca
+        self.abertura += self.vel_abertura
+        if self.abertura > self.raio:
+            self.vel_abertura = -5
+        if self.abertura <= 0:
+            self.vel_abertura = 5
+
         # Desenho da boca
         canto_boca = (self.centro_x, self.centro_y)
-        labio_superior = (self.centro_x + self.raio, self.centro_y - self.raio)
-        labio_inferior = (self.centro_x + self.raio, self.centro_y)
+        labio_superior = (self.centro_x + self.raio, self.centro_y - self.abertura)
+        labio_inferior = (self.centro_x + self.raio, self.centro_y + self.abertura)
 
         pontos = [canto_boca, labio_superior, labio_inferior]
 
@@ -81,3 +90,12 @@ class Pacman:
     def aceitarMovimento(self):
         self.linha = self.linha_intencao
         self.coluna = self.coluna_intencao
+
+
+    def recusarMovimento(self, direcoes):
+        self.linha_intencao = self.linha
+        self.coluna_intencao = self.coluna
+
+
+    def esquina(self, direcoes):
+        pass
